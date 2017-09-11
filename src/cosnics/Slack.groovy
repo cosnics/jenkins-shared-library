@@ -2,7 +2,7 @@ package cosnics
 
 class Slack
 {
-    def notifyStatus(String buildStatus = 'STARTED', currentBuild)
+    def notifyStatus(String buildStatus = 'STARTED', changeSets)
     {
         // Build status of null means success.
                 buildStatus = buildStatus ?: 'SUCCESS'
@@ -28,10 +28,9 @@ class Slack
     }
 
     @NonCPS
-    def getChangeString(currentBuild) {
+    def getChangeString(changeLogSets) {
         def MAX_MSG_LEN = 100
         def changeString = ""
-        def changeLogSets = currentBuild.changeSets
         for (int i = 0; i < changeLogSets.size(); i++) {
             def entries = changeLogSets[i].items
             for (int j = 0; j < entries.length; j++) {
