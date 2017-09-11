@@ -44,5 +44,11 @@ def getChangeString() {
         changeString = " - No new changes"
     }
 
+    unset changeString
+    unset changeLogSets
+    unset entries
+    unset entry
+    unset truncated_msg
+
     return changeString
 }
