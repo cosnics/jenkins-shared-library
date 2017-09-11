@@ -2,7 +2,7 @@ package cosnics
 
 class Slack
 {
-    def notifyStatus(String buildStatus = 'STARTED')
+    def notifyStatus(String buildStatus = 'STARTED', currentBuild)
     {
         // Build status of null means success.
                 buildStatus = buildStatus ?: 'SUCCESS'
@@ -12,7 +12,7 @@ class Slack
 
                 if (buildStatus == 'STARTED') {
                     color = '#D4DADF'
-                    extraMessage = getChangeString()
+                    extraMessage = getChangeString(currentBuild)
                 } else if (buildStatus == 'SUCCESS') {
                     color = '#BDFFC3'
                     extraMessage = " - <https://demo.cosnics.org/${branch}|demo>"
@@ -28,7 +28,7 @@ class Slack
     }
 
     @NonCPS
-    def getChangeString() {
+    def getChangeString(currentBuild) {
         def MAX_MSG_LEN = 100
         def changeString = ""
         def changeLogSets = currentBuild.changeSets
