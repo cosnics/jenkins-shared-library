@@ -24,7 +24,7 @@ class Slack
 
                 def msg = "BUILD ${buildStatus}: `${env.JOB_NAME}` <${env.BUILD_URL}|#${env.BUILD_NUMBER}> ${extraMessage}"
 
-                slackSend(color: color, message: msg)
+                //slackSend(color: color, message: msg)
     }
 
     @NonCPS
