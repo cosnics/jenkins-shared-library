@@ -1,4 +1,4 @@
-def notifyStatus(String buildStatus = 'STARTED')
+def notifyStatus(String buildStatus = 'STARTED', String branch)
 {
     // Build status of null means success.
             buildStatus = buildStatus ?: 'SUCCESS'
