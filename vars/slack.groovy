@@ -1,4 +1,7 @@
 def notify(String buildStatus = 'STARTED') {
+
+        return "debug"
+
         // Build status of null means success.
         buildStatus = buildStatus ?: 'SUCCESS'
 
