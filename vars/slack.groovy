@@ -43,3 +43,7 @@ def getChangeString() {
 
     return changeString
 }
+
+def test() {
+    return "test"
+}
