@@ -2,7 +2,7 @@ package cosnics
 
 class Slack
 {
-    def notify() {
+    def notifyStatus() {
 
     }
 }
