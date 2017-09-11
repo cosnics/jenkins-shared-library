@@ -21,9 +21,9 @@ def notify(String buildStatus = 'STARTED') {
 
         slackSend(color: color, message: msg)
 
-        unset extraMessage
-        unset color
-        unset msg
+        extraMessage = null
+        color = null
+        msg = null
  }
 
 @NonCPS
@@ -44,11 +44,11 @@ def getChangeString() {
         changeString = " - No new changes"
     }
 
-    unset changeString
-    unset changeLogSets
-    unset entries
-    unset entry
-    unset truncated_msg
+    changeString = null
+    changeLogSets = null
+    entries = null
+    entry = null
+    truncated_msg = null
 
     return changeString
 }
