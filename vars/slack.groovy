@@ -1,4 +1,3 @@
-@NonCPS
 def notify(String buildStatus = 'STARTED') {
         // Build status of null means success.
         buildStatus = buildStatus ?: 'SUCCESS'
@@ -21,6 +20,10 @@ def notify(String buildStatus = 'STARTED') {
         def msg = "BUILD ${buildStatus}: `${env.JOB_NAME}` <${env.BUILD_URL}|#${env.BUILD_NUMBER}> ${extraMessage}"
 
         slackSend(color: color, message: msg)
+
+        unset extraMessage
+        unset color
+        unset msg
  }
 
 @NonCPS
