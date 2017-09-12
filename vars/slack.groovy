@@ -1,4 +1,4 @@
-def notifyStatus(String buildStatus = 'STARTED', String branch)
+def notifyStatus(String buildStatus = 'STARTED', String demoUrl = 'https://demo.cosnics.org')
 {
     // Build status of null means success.
             buildStatus = buildStatus ?: 'SUCCESS'
@@ -11,7 +11,7 @@ def notifyStatus(String buildStatus = 'STARTED', String branch)
                 extraMessage = getChangeString()
             } else if (buildStatus == 'SUCCESS') {
                 color = '#BDFFC3'
-                extraMessage = " - <https://demo.cosnics.org/${branch}|demo>"
+                extraMessage = " - <${demoUrl}|demo>"
             } else if (buildStatus == 'UNSTABLE') {
                 color = '#FFFE89'
             } else {
